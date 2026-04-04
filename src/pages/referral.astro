@@ -35,13 +35,13 @@ import Layout from '../layouts/Layout.astro';
                                 <label for="referral-type" class="text-sm/6 font-medium">Dentist referral</label>
                             </div>
                         </div>
-                        <p"> To refer a Private or National Health Service Patient please fill in the opposite form. All fields are mandatory. </p">
+                        <p"> To refer a Private or National Health Service Patient please complete the form. All fields are mandatory. </p">
                     </div>
                 </fieldset>
             </div>
 
-            <div class="bg-gray-100/50 md:col-span-2">
-                <div class="px-4 py-6 sm:p-8">
+            <div class="md:col-span-2">
+                <div class="px-4">
                     <form name="self-referral" method="POST" netlify>
                         <div id="self-referral" class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
                             <div class="block sm:col-span-4">
@@ -51,7 +51,14 @@ import Layout from '../layouts/Layout.astro';
                                 <label for="title" class="hidden">Title (Mr, Ms, Mrs etc.)</label>
                                 <div class="mt-2">
                                     <div class="flex items-center">
-                                        <input id="title" type="text" name="title" placeholder="Title (Mr, Ms, Mrs etc.)" class="block w-full border-1 p-2" />
+                                        <input
+                                            id="title"
+                                            type="text"
+                                            name="title"
+                                            placeholder="Title (Mr, Ms, Mrs etc.)"
+                                            class="block w-full border-1 p-2"
+                                            required
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
                                 <label for="fullname" class="hidden">Full name</label>
                                 <div class="mt-2">
                                     <div class="flex items-center">
-                                        <input id="fullname" type="text" name="fullname" placeholder="Full name" class="block w-full border-1 p-2" />
+                                        <input id="fullname" type="text" name="fullname" placeholder="Full name" class="block w-full border-1 p-2" required />
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +74,14 @@ import Layout from '../layouts/Layout.astro';
                                 <label for="dob" class="hidden">Date of birth (dd/mm/yyyy)</label>
                                 <div class="mt-2">
                                     <div class="flex items-center">
-                                        <input id="dob" type="text" name="dob" placeholder="Date of birth (dd/mm/yyyy)" class="block w-full border-1 p-2" />
+                                        <input
+                                            id="dob"
+                                            type="text"
+                                            name="dob"
+                                            placeholder="Date of birth (dd/mm/yyyy)"
+                                            class="block w-full border-1 p-2"
+                                            required
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -81,6 +95,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="contactnumber"
                                             placeholder="Contact number"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -88,14 +103,14 @@ import Layout from '../layouts/Layout.astro';
                             <div class="col-span-full">
                                 <label for="address" class="hidden">Address</label>
                                 <div class="mt-2">
-                                    <textarea id="address" name="address" rows="3" placeholder="Addresss" class="block w-full border-1 p-2"></textarea>
+                                    <textarea id="address" name="address" rows="3" placeholder="Address" class="block w-full border-1 p-2" required></textarea>
                                 </div>
                             </div>
                             <div class="sm:col-span-4">
                                 <label for="postcode" class="hidden">Postcode</label>
                                 <div class="mt-2">
                                     <div class="flex items-center">
-                                        <input id="postcode" type="text" name="postcode" placeholder="Postcode" class="block w-full border-1 p-2" />
+                                        <input id="postcode" type="text" name="postcode" placeholder="Postcode" class="block w-full border-1 p-2" required />
                                     </div>
                                 </div>
                             </div>
@@ -109,6 +124,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="healthnumber"
                                             placeholder="Health number"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -140,6 +156,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="patienttitle"
                                             placeholder="Patient Title (Mr, Ms, Mrs etc.)"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -154,6 +171,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="patientfullname"
                                             placeholder="Patient full name"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -168,6 +186,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="patientdob"
                                             placeholder="Patient date of birth (dd/mm/yyyy)"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -182,6 +201,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="patientcontactnumber"
                                             placeholder="Patient contact number"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -189,8 +209,13 @@ import Layout from '../layouts/Layout.astro';
                             <div class="col-span-full">
                                 <label for="patientaddress" class="hidden">Patient address</label>
                                 <div class="mt-2">
-                                    <textarea id="patientaddress" name="patientaddress" rows="3" placeholder="Patient address" class="block w-full border-1 p-2"
-                                    ></textarea>
+                                    <textarea
+                                        id="patientaddress"
+                                        name="patientaddress"
+                                        rows="3"
+                                        placeholder="Patient address"
+                                        class="block w-full border-1 p-2"
+                                        required></textarea>
                                 </div>
                             </div>
                             <div class="sm:col-span-4">
@@ -203,6 +228,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="patientpostcode"
                                             placeholder="Patient postcode"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -217,6 +243,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="patienthealthnumber"
                                             placeholder="Patient health number"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -229,7 +256,10 @@ import Layout from '../layouts/Layout.astro';
                                         name="patientobservation"
                                         rows="3"
                                         placeholder="Patient observation"
-                                        class="block w-full border-1 p-2"></textarea>
+                                        class="block w-full border-1 p-2"
+                                        required
+                                    >
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="sm:col-span-4">
@@ -242,6 +272,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="referringdentistname"
                                             placeholder="Referring dentist name"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -256,6 +287,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="referringpractice"
                                             placeholder="Referring practice"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -270,6 +302,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="referringdentistemail"
                                             placeholder="Referring dentist email"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -284,6 +317,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="referringpracticephone"
                                             placeholder="Practice phone number"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -296,7 +330,8 @@ import Layout from '../layouts/Layout.astro';
                                         name="practiceaddress"
                                         rows="3"
                                         placeholder="Practice address"
-                                        class="block w-full border-1 p-2"></textarea>
+                                        class="block w-full border-1 p-2"
+                                        required></textarea>
                                 </div>
                             </div>
                             <div class="sm:col-span-4">
@@ -309,6 +344,7 @@ import Layout from '../layouts/Layout.astro';
                                             name="practicepostcode"
                                             placeholder="Practice postcode"
                                             class="block w-full border-1 p-2"
+                                            required
                                         />
                                     </div>
                                 </div>

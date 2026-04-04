@@ -4,12 +4,17 @@
     --font-sans: 'Georgia', 'serif';
     --font-sans-serif: var(--font-montserrat), 'sans-serif';
     --color-primary: #6ABFBA;
-    --color-primary-content: #4a5568;
+    --color-primary-content: #5b6679;
     --color-complementary: #97D2CF;
 
 }
 
 @layer base {
+
+    body {
+        @apply text-primary-content;
+    }
+
     h1 {
         @apply font-sans-serif sm:text-3xl text-primary uppercase tracking-widest;
     }
@@ -26,34 +31,17 @@
         @apply underline transition hover:opacity-80;
     }
 
-    pre {
-        @apply p-6 overflow-x-auto rounded-lg;
+    p, td {
+        @apply text-primary-content;
     }
 
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
-        font-size: 0.9em;
+    q {
+        @apply italic text-primary;
     }
+
 }
 
 @layer components {
-    .markdown {
-        > * {
-            @apply my-6;
-        }
-
-        :where(h1, h2) {
-            @apply mt-12 mb-6;
-        }
-
-        > :first-child {
-            @apply mt-0;
-        }
-
-        > :last-child {
-            @apply mb-0;
-        }
-    }
 
     .btn {
         @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;

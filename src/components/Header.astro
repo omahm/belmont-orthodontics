@@ -13,20 +13,32 @@ const navItems = [
 ];
 ---
 
-<nav class="flex flex-wrap items-center gap-4 px-6 py-6">
+<nav class="flex flex-wrap items-center gap-4 px-6 py-6 relative">
     <Logo />
-    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden">
+    <button
+        id="menu-toggle"
+        class="lg:hidden ml-auto p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
+        aria-label="Toggle menu"
+    >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+    <div
+        id="menu"
+        class="w-full lg:flex lg:items-center lg:w-auto lg:ml-auto lg:static absolute top-full left-0 bg-white lg:bg-transparent shadow-lg lg:shadow-none hidden lg:block z-50"
+    >
         {
             !!navItems?.length && (
-                <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
+                <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center px-6 lg:px-0">
                     {navItems.map((item) => (
-                        <li>
+                        <li class="mb-4 lg:mb-0">
                             <a
                                 href={item.href}
                                 class={
                                     currentPath === item.href
-                                        ? 'text-primary font-sans-serif no-underline mx-2 hover:text-primary'
-                                        : 'font-sans-serif no-underline mx-2 hover:text-primary'
+                                        ? 'text-primary font-sans-serif no-underline mx-2 hover:text-primary block lg:inline'
+                                        : 'font-sans-serif no-underline mx-2 hover:text-primary block lg:inline'
                                 }
                             >
                                 {item.linkText}
@@ -38,3 +50,18 @@ const navItems = [
         }
     </div>
 </nav>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    menu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            menu.classList.add('hidden');
+        }
+    });
+</script>

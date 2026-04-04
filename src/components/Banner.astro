@@ -7,10 +7,28 @@ interface Props {
 const { title, bgimage } = Astro.props;
 ---
 
-<div class="banner flex h-64" style={`--bg-image: url('${bgimage}')`}>
-    <div class="container mx-auto flex justify-center items-end">
-        <h1 class="inline-block p-4 -mb-2 ml-2 bg-white">{title}</h1>
-    </div>
+<div class="banner flex h-24 sm:h-84 md:h-124" style={`--bg-image: url('${bgimage}')`}>
+    {
+        title == 'home' && (
+            <div class="container mx-auto flex justify-center items-end">
+                <div class="flex ">
+                    <div class="md:w-1/2">
+                        <p class="text-md sm:text-2xl lg:text-3xl bg-teal-500 text-white p-4 m-8 hidden sm:block">
+                            Welcome to Belmont Orthodontics, one of Northern Ireland's leading orthodontic providers with practices in Belfast, Downpatrick and
+                            Newtownards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    {
+        title != 'home' && (
+            <div class="container mx-auto flex justify-center items-end">
+                <h1 class="inline-block p-4 -mb-2 ml-2 bg-white">{title}</h1>
+            </div>
+        )
+    }
 </div>
 
 <style>
@@ -19,7 +37,5 @@ const { title, bgimage } = Astro.props;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        width: 100%;
-        min-height: 400px;
     }
 </style>
