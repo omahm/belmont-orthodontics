@@ -59,41 +59,81 @@ import Layout from '../layouts/Layout.astro';
             <div class="flex-1 max-w-xl m-2 lg:m-10">
                 <h3 class="mb-4">Email</h3>
                 <form name="contact" method="POST" netlify>
-                    <input type="hidden" name="_token" value="Eo5Ej4OnzfnhSpVA8h01gBjXYvWrBrS201vPHeXl" />
                     <input
                         class="w-full block border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
                         placeholder="Full name"
                         type="text"
-                        x-model="formData.name"
+                        name="name"
                         required
                     />
                     <input
                         class="w-full block border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
                         placeholder="Email address"
                         type="email"
-                        x-model="formData.email"
+                        name="email"
                         required
                     />
                     <input
                         class="w-full block border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
                         placeholder="Phone (optional)"
                         type="phone"
-                        x-model="formData.phone"
-                        required
+                        name="phone"
                     />
                     <textarea
                         class="w-full block rounded border border-gray-400 focus:outline-none h-32 focus:border-indigo-500 text-base px-4 py-2 mb-4 resize-none"
                         placeholder="Message"
-                        x-model="formData.message"
+                        name="message"
                         required></textarea>
                     <button
                         class="rounded-md bg-teal-600 px-3 py-2 text-sm font-semibold text-white hover:bg-teal-400 focus-visible:outline-2 focus-visible:outline-offset-2"
-                        :disabled="formLoading"
-                        x-text="buttonText">Send</button
+                        id="submit-btn">Send</button
                     >
-                    <p class="text-teal-500" x-text="formMessage"></p>
+                    <p class="text-teal-500 pt-2" id="form-message"></p>
                 </form>
             </div>
         </div>
     </main>
 </Layout>
+
+<script>
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const myForm = event.target;
+        const formData = new FormData(myForm);
+        const submitBtn = document.getElementById('submit-btn');
+        const messageEl = document.getElementById('form-message');
+
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        messageEl.textContent = '';
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+            .then((response) => {
+                if (response.ok) {
+                    messageEl.textContent = 'Thank you! Your message has been sent successfully.';
+                    messageEl.className = 'text-green-500';
+                    myForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch((error) => {
+                messageEl.textContent = 'Sorry, there was an error sending your message. Please try again.';
+                messageEl.className = 'text-red-500';
+                console.error(error);
+            })
+            .finally(() => {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send';
+            });
+    };
+
+    document.querySelector('form').addEventListener('submit', handleSubmit);
+</script>
