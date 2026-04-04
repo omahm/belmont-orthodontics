@@ -1,0 +1,340 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Referral" bannerTitle="Referral" bannerImg="/images/belmont-orthodontics-referral.jpg">
+    <div class="divide-y divide-white/10">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-8 py-10 md:grid-cols-3">
+            <div class="px-4 sm:px-0">
+                <p>For referrals to our practice please select either a self or dental referral.</p>
+                <fieldset>
+                    <div class="mt-6 space-y-6">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <input
+                                    id="referral-type"
+                                    type="radio"
+                                    name="referral-type"
+                                    value="self"
+                                    checked
+                                    class="relative size-4 appearance-none rounded-full border border-gray/10 bg-white/5 before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-teal-500 checked:bg-teal-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 disabled:border-white/5 disabled:bg-white/10 disabled:before:bg-white/20 forced-colors:appearance-auto forced-colors:before:hidden"
+                                />
+                                <label for="referral-type" class="text-sm/6 font-medium">Self referral</label>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <input
+                                    id="referral-type"
+                                    type="radio"
+                                    name="referral-type"
+                                    value="dentist"
+                                    class="relative size-4 appearance-none rounded-full border border-gray/10 bg-white/5 before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-teal-500 checked:bg-teal-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 disabled:border-white/5 disabled:bg-white/10 disabled:before:bg-white/20 forced-colors:appearance-auto forced-colors:before:hidden"
+                                />
+                                <label for="referral-type" class="text-sm/6 font-medium">Dentist referral</label>
+                            </div>
+                        </div>
+                        <p"> To refer a Private or National Health Service Patient please fill in the opposite form. All fields are mandatory. </p">
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="bg-gray-100/50 md:col-span-2">
+                <div class="px-4 py-6 sm:p-8">
+                    <form name="self-referral" method="POST" data-netlify="true">
+                        <div id="self-referral" class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
+                            <div class="block sm:col-span-4">
+                                <h2 class="uppercase font-sans-serif text-lg t">Self Referral</h2>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="title" class="hidden">Title (Mr, Ms, Mrs etc.)</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input id="title" type="text" name="title" placeholder="Title (Mr, Ms, Mrs etc.)" class="block w-full border-1 p-2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="fullname" class="hidden">Full name</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input id="fullname" type="text" name="fullname" placeholder="Full name" class="block w-full border-1 p-2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="dob" class="hidden">Date of birth (dd/mm/yyyy)</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input id="dob" type="text" name="dob" placeholder="Date of birth (dd/mm/yyyy)" class="block w-full border-1 p-2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="fullname" class="hidden">Contact number</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="contactnumber"
+                                            type="text"
+                                            name="contactnumber"
+                                            placeholder="Contact number"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-full">
+                                <label for="address" class="hidden">Address</label>
+                                <div class="mt-2">
+                                    <textarea id="address" name="address" rows="3" placeholder="Addresss" class="block w-full border-1 p-2"></textarea>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="postcode" class="hidden">Postcode</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input id="postcode" type="text" name="postcode" placeholder="Postcode" class="block w-full border-1 p-2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="healthnumber" class="hidden">Health number</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="healthnumber"
+                                            type="text"
+                                            name="healthnumber"
+                                            placeholder="Health number"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-4 col-span-full">
+                                <button
+                                    type="submit"
+                                    class="rounded-md bg-teal-600 px-3 py-2 text-sm font-semibold text-white hover:bg-teal-400 focus-visible:outline-2 focus-visible:outline-offset-2"
+                                    >Send</button
+                                >
+                            </div>
+                        </div>
+                    </form>
+
+                    <form name="dentist-referral" method="POST" data-netlify="true">
+                        <div id="dentist-referral" class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6 hidden">
+                            <div class="block sm:col-span-4">
+                                <h2 class="uppercase font-sans-serif text-lg t">Dentist Referral</h2>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="patienttitle" class="hidden">Patient title (Mr, Ms, Mrs etc.)</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="patienttitle"
+                                            type="text"
+                                            name="patienttitle"
+                                            placeholder="Patient Title (Mr, Ms, Mrs etc.)"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="patientfullname" class="hidden">Patient full name</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="patientfullname"
+                                            type="text"
+                                            name="patientfullname"
+                                            placeholder="Patient full name"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="patientdob" class="hidden">Patient date of birth (dd/mm/yyyy)</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="patientdob"
+                                            type="text"
+                                            name="patientdob"
+                                            placeholder="Patient date of birth (dd/mm/yyyy)"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="patientcontactnumber" class="hidden">Patient contact number</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="patientcontactnumber"
+                                            type="text"
+                                            name="patientcontactnumber"
+                                            placeholder="Patient contact number"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-full">
+                                <label for="patientaddress" class="hidden">Patient address</label>
+                                <div class="mt-2">
+                                    <textarea id="patientaddress" name="patientaddress" rows="3" placeholder="Patient address" class="block w-full border-1 p-2"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="patientpostcode" class="hidden">Patient postcode</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="patientpostcode"
+                                            type="text"
+                                            name="patientpostcode"
+                                            placeholder="Patient postcode"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="patienthealthnumber" class="hidden">Patient health number</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="patienthealthnumber"
+                                            type="text"
+                                            name="patienthealthnumber"
+                                            placeholder="Patient health number"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-full">
+                                <label for="patientobservation" class="hidden">Patient observation</label>
+                                <div class="mt-2">
+                                    <textarea
+                                        id="patientobservation"
+                                        name="patientobservation"
+                                        rows="3"
+                                        placeholder="Patient observation"
+                                        class="block w-full border-1 p-2"></textarea>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="referringdentistname" class="hidden">Referring dentist name</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="referringdentistname"
+                                            type="text"
+                                            name="referringdentistname"
+                                            placeholder="Referring dentist name"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="referringpractice" class="hidden">Referring practice</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="referringpractice"
+                                            type="text"
+                                            name="referringpractice"
+                                            placeholder="Referring practice"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="referringdentistemail" class="hidden">Referring dentist email</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="referringdentistemail"
+                                            type="text"
+                                            name="referringdentistemail"
+                                            placeholder="Referring dentist email"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="referringpracticephone" class="hidden">Practice phone number</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="referringpracticephone"
+                                            type="text"
+                                            name="referringpracticephone"
+                                            placeholder="Practice phone number"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-full">
+                                <label for="practiceaddress" class="hidden">Practice address</label>
+                                <div class="mt-2">
+                                    <textarea
+                                        id="practiceaddress"
+                                        name="practiceaddress"
+                                        rows="3"
+                                        placeholder="Practice address"
+                                        class="block w-full border-1 p-2"></textarea>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label for="practicepostcode" class="hidden">Practice postcode</label>
+                                <div class="mt-2">
+                                    <div class="flex items-center">
+                                        <input
+                                            id="practicepostcode"
+                                            type="text"
+                                            name="practicepostcode"
+                                            placeholder="Practice postcode"
+                                            class="block w-full border-1 p-2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-4 col-span-full">
+                                <button
+                                    type="submit"
+                                    class="rounded-md bg-teal-600 px-3 py-2 text-sm font-semibold text-white hover:bg-teal-400 focus-visible:outline-2 focus-visible:outline-offset-2"
+                                    >Send</button
+                                >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    const types = document.querySelectorAll('input[name="referral-type"]');
+    const self = document.getElementById('self-referral');
+    const dentist = document.getElementById('dentist-referral');
+
+    types.forEach((radio) => {
+        radio.addEventListener('change', (e) => {
+            self.classList.toggle('hidden');
+            dentist.classList.toggle('hidden');
+        });
+    });
+</script>

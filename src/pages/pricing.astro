@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import pricing from '../data/pricing.json';
+---
+
+<Layout title="Pricing" bannerTitle="Pricing" bannerImg="/images/belmont-orthodontics-pricing.jpg">
+    <div class="flex items-stretch flex-col md:flex-row">
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Invisalign</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>Invisalign</td>
+                        <td class="text-right">£4500</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                The above fees include:
+                <br />Essix retainers
+                <br />Long term retention
+                <br />Six months retainer supervision
+            </p>
+        </div>
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Fixed Appliances</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>Clear brackets single arch</td>
+                        <td class="text-right">£2800</td>
+                    </tr>
+                    <tr>
+                        <td>Clear brackets both arches</td>
+                        <td class="text-right">£3500</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                The above fees include:
+                <br />Essix retainers
+                <br />Long term retention
+                <br />Six months retainer supervision
+            </p>
+        </div>
+    </div>
+
+    <div class="flex items-stretch flex-col md:flex-row">
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Retainers</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>Essix -Lab made from impression- Single retainer</td>
+                        <td class="text-right">£75</td>
+                    </tr>
+                    <tr>
+                        <td>Vivera 3 sets single arch</td>
+                        <td class="text-right">£300</td>
+                    </tr>
+                    <tr>
+                        <td>Vivera 3 sets both arches</td>
+                        <td class="text-right">£400</td>
+                    </tr>
+                    <tr>
+                        <td>Bonded wire retainer single arch</td>
+                        <td class="text-right">£250</td>
+                    </tr>
+                    <tr>
+                        <td>Bonded wire retainer both arches</td>
+                        <td class="text-right">£400</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Replacement Appliances</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>NHS single retainer</td>
+                        <td class="text-right">£65.16</td>
+                    </tr>
+                    <tr>
+                        <td>NHS two retainers</td>
+                        <td class="text-right">£130.32</td>
+                    </tr>
+                    <tr>
+                        <td>NHS twin-block</td>
+                        <td class="text-right">£104.91</td>
+                    </tr>
+                    <tr>
+                        <td>NHS upper removable</td>
+                        <td class="text-right">£88.68</td>
+                    </tr>
+                    <tr>
+                        <td>Private single retainer</td>
+                        <td class="text-right">£75.00</td>
+                    </tr>
+                    <tr>
+                        <td>Private two retainers</td>
+                        <td class="text-right">£150.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="flex items-stretch flex-col md:flex-row">
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Private Mouth Guard</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>Single colour</td>
+                        <td class="text-right">£75</td>
+                    </tr>
+                    <tr>
+                        <td>Two colours</td>
+                        <td class="text-right">£90</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Private Consultation</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>Initial Orthodontic assessment</td>
+                        <td class="text-right">£150</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="flex items-stretch flex-col md:flex-row">
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Fast Track Appliances</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>White upper + lower sectionals</td>
+                        <td class="text-right">£2200</td>
+                    </tr>
+                    <tr>
+                        <td>White upper / lower sectionals</td>
+                        <td class="text-right">£1500</td>
+                    </tr>
+                    <tr>
+                        <td>Silver upper + lower sectionals</td>
+                        <td class="text-right">£2000</td>
+                    </tr>
+                    <tr>
+                        <td>Silver upper / lower sectionals</td>
+                        <td class="text-right">£1000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                The above fees include:
+                <br />Essix retainers
+                <br />Long term retention
+                <br />Six months retainer supervision
+            </p>
+        </div>
+
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Non NHS Approved Fees</h3>
+            <table class="table-auto border-collapse w-full">
+                <tbody
+                    ><tr>
+                        <td>Silver upper and lower fixed</td>
+                        <td class="text-right">£2500</td>
+                    </tr>
+                    <tr>
+                        <td>Silver upper or lower fixed</td>
+                        <td class="text-right">£2000</td>
+                    </tr>
+                    <tr>
+                        <td>Additional fee for white brackets per arch</td>
+                        <td class="text-right">£200</td>
+                    </tr>
+                    <tr>
+                        <td>Biteplane Applianee</td>
+                        <td class="text-right">£300</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                The above fees include:
+                <br />Essix retainers
+                <br />Long term retention
+                <br />Six months retainer supervision
+            </p>
+        </div>
+    </div>
+
+    <div class="flex items-stretch flex-col md:flex-row">
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10">
+            <h3>Payment Plans</h3>
+            <p>
+                A deposit is required at the beginning of your treatment. After this an interest free balance is payable by standing order. Payment options of
+                6, 10 or 12 months are available.
+            </p>
+        </div>
+        <div class="flex-1 flex-grow p-2 m-2 lg:m-10"></div>
+    </div>
+</Layout>

@@ -1,25 +1,25 @@
 @import 'tailwindcss';
 
 @theme {
-    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
-    --color-primary-content: #101828;
-    --color-complementary: #355c7d;
-    --background-image-noise: linear-gradient(
-            to bottom,
-            color-mix(in oklab, var(--color-gray-950) 0%, transparent),
-            color-mix(in oklab, var(--color-gray-950) 100%, transparent)
-        ),
-        url('/images/noise.png');
+    --font-sans: 'Georgia', 'serif';
+    --font-sans-serif: var(--font-montserrat), 'sans-serif';
+    --color-primary: #6ABFBA;
+    --color-primary-content: #4a5568;
+    --color-complementary: #97D2CF;
+
 }
 
 @layer base {
     h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
+        @apply font-sans-serif sm:text-3xl text-primary uppercase tracking-widest;
     }
 
     h2 {
-        @apply text-2xl font-bold sm:text-3xl;
+        @apply font-sans-serif text-primary uppercase text-2xl sm:text-3xl;
+    }
+
+    h3 {
+        @apply font-sans-serif text-primary uppercase sm:text-lg;
     }
 
     a:not(.btn) {

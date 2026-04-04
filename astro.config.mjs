@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
@@ -13,5 +13,10 @@ export default defineConfig({
         devFeatures: {
             environmentVariables: true
         }
-    })
+    }),
+    fonts: [{
+        provider: fontProviders.fontsource(),
+        name: "Montserrat",
+        cssVariable: "--font-montserrat",
+    }]
 });

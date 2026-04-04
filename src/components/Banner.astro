@@ -1,0 +1,25 @@
+---
+interface Props {
+    title: string;
+    bgimage: string;
+}
+
+const { title, bgimage } = Astro.props;
+---
+
+<div class="banner flex h-64" style={`--bg-image: url('${bgimage}')`}>
+    <div class="container mx-auto flex justify-center items-end">
+        <h1 class="inline-block p-4 -mb-2 ml-2 bg-white">{title}</h1>
+    </div>
+</div>
+
+<style>
+    .banner {
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        min-height: 400px;
+    }
+</style>
