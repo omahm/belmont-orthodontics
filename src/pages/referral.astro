@@ -116,9 +116,11 @@ import Layout from '../layouts/Layout.astro';
                             <div class="py-4 col-span-full">
                                 <button
                                     type="submit"
+                                    id="self-submit-btn"
                                     class="rounded-md bg-teal-600 px-3 py-2 text-sm font-semibold text-white hover:bg-teal-400 focus-visible:outline-2 focus-visible:outline-offset-2"
                                     >Send</button
                                 >
+                                <p id="self-form-message" class="mt-2"></p>
                             </div>
                         </div>
                     </form>
@@ -314,9 +316,11 @@ import Layout from '../layouts/Layout.astro';
                             <div class="py-4 col-span-full">
                                 <button
                                     type="submit"
+                                    id="dentist-submit-btn"
                                     class="rounded-md bg-teal-600 px-3 py-2 text-sm font-semibold text-white hover:bg-teal-400 focus-visible:outline-2 focus-visible:outline-offset-2"
                                     >Send</button
                                 >
+                                <p id="dentist-form-message" class="mt-2"></p>
                             </div>
                         </div>
                     </form>
@@ -337,4 +341,47 @@ import Layout from '../layouts/Layout.astro';
             dentist.classList.toggle('hidden');
         });
     });
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const myForm = event.target;
+        const formData = new FormData(myForm);
+        const isSelf = myForm.name === 'self-referral';
+        const submitBtn = document.getElementById(isSelf ? 'self-submit-btn' : 'dentist-submit-btn');
+        const messageEl = document.getElementById(isSelf ? 'self-form-message' : 'dentist-form-message');
+
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        messageEl.textContent = '';
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+            .then((response) => {
+                if (response.ok) {
+                    messageEl.textContent = 'Thank you! Your referral has been sent successfully.';
+                    messageEl.className = 'text-green-500 mt-2';
+                    myForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch((error) => {
+                messageEl.textContent = 'Sorry, there was an error sending your referral. Please try again or call us.';
+                messageEl.className = 'text-red-500 mt-2';
+                console.error(error);
+            })
+            .finally(() => {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send';
+            });
+    };
+
+    document.querySelector('form[name="self-referral"]').addEventListener('submit', handleSubmit);
+    document.querySelector('form[name="dentist-referral"]').addEventListener('submit', handleSubmit);
 </script>
